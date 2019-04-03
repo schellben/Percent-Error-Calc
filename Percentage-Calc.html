@@ -1,0 +1,44 @@
+<html>
+	<head>
+	</head>
+	<body>
+		
+		<p id="exper">ExperimentalValue:</p>
+		
+		<p id="correct">CorrectValue:</p>
+		
+		<p id="ans"><b>Answer:</b></p>
+		<script>
+			var exp = 0;
+			var cor = 0;
+			var step1 = 0;
+			var step2 = 0;
+			var ans = 0;
+
+			window.onload = function() {
+				document.addEventListener('keydown', 
+ 					function(evt) {
+ 						if (evt.keyCode == 32) {
+ 						exp = prompt("Please enter experimental value", exp);
+ 						cor = prompt("Please enter accepted value", cor);
+ 						
+ 						calculate();
+ 					}
+ 			
+ 				});
+			}
+
+			function calculate() {
+				step1 =  Math.abs(exp - cor);
+				step2 = step1/cor;
+				ans = step2 * 100;
+
+				document.getElementById('ans').innerHTML = "Answer: " + ans + "%";
+				document.getElementById("ans").style.fontWeight = "700";
+				document.getElementById('exper').innerHTML = "ExperimentalValue: " + exp;
+				document.getElementById('correct').innerHTML = "CorrectValue: " + cor;
+			}
+
+		</script>
+	</body>
+</html>
